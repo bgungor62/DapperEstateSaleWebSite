@@ -1,6 +1,7 @@
 using DapperApi.Models.DapperContext;
 using DapperApi.Repositories.BottomGridRepository;
 using DapperApi.Repositories.CategoryRepository;
+using DapperApi.Repositories.PopularLocationRepository;
 using DapperApi.Repositories.ProductRepository;
 using DapperApi.Repositories.ServiceRepository;
 using DapperApi.Repositories.WhoWeAreRepository;
@@ -21,9 +22,12 @@ builder.Services.AddTransient<IWhoWeAreRepository, WhoWeAreRepository>();
 //Add services to the ServiceRepository 
 builder.Services.AddTransient<IServiceRepository, ServiceRepository>();
 
-
 //Add services to the BottomGridRepository 
 builder.Services.AddTransient<IBottomGridRepository, BottomGridRepository>();
+
+//Add services to the BottomGridRepository 
+builder.Services.AddTransient<IPopularLocationRepository, PopularLocationRepository>();
+
 ////////////////////
 
 builder.Services.AddControllers();
