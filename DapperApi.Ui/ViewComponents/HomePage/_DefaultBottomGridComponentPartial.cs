@@ -1,15 +1,14 @@
-﻿using DapperApi.Ui.ViewModel.ProductModel;
+﻿using DapperApi.Ui.ViewModel.BottomGridModel;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace DapperApi.Ui.ViewComponents.HomePage
 {
-
-    public class _DefaultHomePageProductList : ViewComponent
+    public class _DefaultBottomGridComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _DefaultHomePageProductList(IHttpClientFactory httpClientFactory)
+        public _DefaultBottomGridComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,13 +16,14 @@ namespace DapperApi.Ui.ViewComponents.HomePage
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44317/api/Products/PorductJoinCategory");
+            var responseMessage = await client.GetAsync("https://localhost:44317/api/BottomGrids");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultProductModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultBottomGridModel>>(jsonData);
                 return View(values);
             }
+
             return View();
         }
     }

@@ -6,11 +6,11 @@ namespace DapperApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BottomGridController : ControllerBase
+    public class BottomGridsController : ControllerBase
     {
         private readonly IBottomGridRepository _bottomGridRepository;
 
-        public BottomGridController(IBottomGridRepository bottomGridRepository)
+        public BottomGridsController(IBottomGridRepository bottomGridRepository)
         {
             _bottomGridRepository = bottomGridRepository;
         }

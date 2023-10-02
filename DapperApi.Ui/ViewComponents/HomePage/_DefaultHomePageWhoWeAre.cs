@@ -19,8 +19,8 @@ namespace DapperApi.Ui.ViewComponents.HomePage
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _clientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44317/api/WhoWeAreDetail");
-            var responseMessage2 = await client.GetAsync("https://localhost:44317/api/Service/ServiceList");
+            var responseMessage = await client.GetAsync("https://localhost:44317/api/WhoWeAreDetails");
+            var responseMessage2 = await client.GetAsync("https://localhost:44317/api/Services/ServiceList");
             if (responseMessage.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

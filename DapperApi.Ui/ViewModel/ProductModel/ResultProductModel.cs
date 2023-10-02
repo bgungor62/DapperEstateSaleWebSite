@@ -3,7 +3,6 @@
     public class ResultProductModel
     {
 
-        public int productID { get; set; }
         public string title { get; set; }
         public decimal price { get; set; }
         public string coverImage { get; set; }

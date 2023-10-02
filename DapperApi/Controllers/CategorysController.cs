@@ -7,11 +7,11 @@ namespace DapperApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategorysController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryController(ICategoryRepository categoryRepository)
+        public CategorysController(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }

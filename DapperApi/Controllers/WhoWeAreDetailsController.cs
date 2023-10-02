@@ -8,11 +8,11 @@ namespace DapperApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WhoWeAreDetailController : ControllerBase
+    public class WhoWeAreDetailsController : ControllerBase
     {
         private readonly IWhoWeAreRepository _whoWeAreRepository;
 
-        public WhoWeAreDetailController(IWhoWeAreRepository whoWeAreRepository)
+        public WhoWeAreDetailsController(IWhoWeAreRepository whoWeAreRepository)
         {
             _whoWeAreRepository = whoWeAreRepository;
         }
