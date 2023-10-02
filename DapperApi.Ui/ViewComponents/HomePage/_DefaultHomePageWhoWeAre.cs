@@ -20,16 +20,23 @@ namespace DapperApi.Ui.ViewComponents.HomePage
         {
             var client = _clientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:44317/api/WhoWeAreDetail");
-            if (responseMessage.IsSuccessStatusCode)
+            var responseMessage2 = await client.GetAsync("https://localhost:44317/api/Service/ServiceList");
+            if (responseMessage.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+
                 var values = JsonConvert.DeserializeObject<List<ResultWhoWeAreModel>>(jsonData);
+                var values2 = JsonConvert.DeserializeObject<List<ResultServiceWhoWeAreModel>>(jsonData2);
+
                 ViewBag.title = values.Select(x=>x.Title).FirstOrDefault();
                 ViewBag.subtitle = values.Select(x => x.Subtitle).FirstOrDefault();
                 ViewBag.description = values.Select(x => x.Description).FirstOrDefault();
                 ViewBag.description2 = values.Select(x => x.Description2).FirstOrDefault();
 
-                return View();
+                
+
+                return View(values2);
             }
             return View();
         }
